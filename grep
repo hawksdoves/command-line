@@ -1,0 +1,4 @@
+grep word *.txt     grep is used to find a word within a document e.g. a txt document
+
+it can also be used to find a word/letter/number within a document name
+e.g. find . -name "*.txt" -print | grep "\d\+"            
