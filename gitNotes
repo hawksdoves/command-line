@@ -1,0 +1,24 @@
+Create a directory that you want to become a git repository:
+mkdir gitDir
+cd gitDir
+git init
+
+On github, create a repository called say gitDir
+git remote add origin git@github.com:hawksdoves/getDir.git    connects the 2 repositories; 1 local, 1 on github
+git push -u origin master  push these changes to github
+
+touch file                          create new file
+git add file                        it is now stage and ready to be commit
+git commit -m "first commit"        commit to changes and comment (-m)
+git push origin master              push these changes to github
+
+
+If you accidentally initialise a git repo in a folder that shouldn't be under version control, 
+e.g. by running git init in ~/Desktop, you can revert the change by removing the hidden .git folder:
+            rm -rf .git
+
+git remote -v       lists if there are any remotes set up in the given directory i.e. does it exist and it is pointing in the right direction
+
+git checkout hash   takes you back to that particular hash, "travel back in time!"
+
+git status          shows what hasn't been tracked
