@@ -1,0 +1,5 @@
+mv can be used in 2 ways:
+
+mv fileName directoryName       move file/directory into this directoryName
+
+mv fileName newFileName         change the name of this file to newFileName
