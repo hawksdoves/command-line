@@ -1,0 +1,3 @@
+wc "word count" gives 3 numbers; row/line (l), words (w), characters (m)
+
+can specifiy only one count e.g. wc -l  gives us the number of lines, only. (Also can be used, to find how many files/directories there are)
