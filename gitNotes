@@ -1,3 +1,7 @@
+touch newFile
+vi newFile
+#now in editor, type i can write file
+
 Create a directory that you want to become a git repository:
 mkdir gitDir
 cd gitDir
@@ -19,6 +23,41 @@ e.g. by running git init in ~/Desktop, you can revert the change by removing the
 
 git remote -v       lists if there are any remotes set up in the given directory i.e. does it exist and it is pointing in the right direction
 
-git checkout hash   takes you back to that particular hash, "travel back in time!"
+git checkout hash   takes you back to that particular hash, "travel back in time!" checkout -b creates a branch
 
 git status          shows what hasn't been tracked
+
+git log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+--pretty="..." defines the format of the output.
+%h is the abbreviated hash of the commit
+%d are any decorations on that commit (e.g. branch heads or tags)
+%ad is the author date
+%s is the comment
+%an is the author name
+--graph informs git to display the commit tree in an ASCII graph layout
+--date=short keeps the date format nice and short
+
+can set up aliases for commit, status, checkout etc. Go into .gitconfig file in your $HOME directory.
+e.g. 
+[alias]
+  co = checkout
+  ci = commit
+  st = status
+  br = branch
+  hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+  type = cat-file -t
+  dump = cat-file -p
+  
+can tag different versions/hash e.g. git tag v1 , 
+then can look at the previous version:  git checkout v1^ 
+then make its tag e.g. v1-beta:     git tag v1-beta
+
+if we want to reverse a commit AND keep this info in the log:           
+git revert HEAD
+takes you to editor. save and exit by :wq
+
+to delete commit s.t they no longer appear in the log
+git reset --hard tag
+removes all commits after tag
+
+ls - C .git             shows you and can access all the actions/commits etc
