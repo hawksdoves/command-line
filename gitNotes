@@ -23,9 +23,9 @@ e.g. by running git init in ~/Desktop, you can revert the change by removing the
 
 git remote -v       lists if there are any remotes set up in the given directory i.e. does it exist and it is pointing in the right direction
 
-git checkout hash   takes you back to that particular hash, "travel back in time!" checkout -b creates a branch
+git checkout hash   takes you back to that particular hash or last commit, "travel back in time!" checkout -b creates a branch
 
-git status          shows what hasn't been tracked
+git status          shows what has/hasn't been tracked/staged/committed
 
 git log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
 --pretty="..." defines the format of the output.
@@ -57,7 +57,17 @@ git revert HEAD
 takes you to editor. save and exit by :wq
 
 to delete commit s.t they no longer appear in the log
-git reset --hard tag
+git reset --hard tag/hash
 removes all commits after tag
 
 ls - C .git             shows you and can access all the actions/commits etc
+
+BRANCHES
+git checkout branchONE              now will be in branchONE
+git merge master                    master brought into branchONE
+******* If conflict between master and branchONE, need to go into the file within branchONE and amend manually ********
+*** can use rebase instead of merge BUT DON'T as it rewrites the comment history- bad when sharing with others *****
+
+ADDING A TRACKING BRANCH i.e. Add a local branch that tracks a remote branch
+git branch --track newBranch origin/branchO     Branch newBranch set up to track remote branch branchO from origin.
+**** note the above has to be done when NOT in the original repo ****
